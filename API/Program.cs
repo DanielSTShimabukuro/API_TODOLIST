@@ -1,4 +1,12 @@
+using CrossCutting.IoC;
+
+DotNetEnv.Env.Load();
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration["ConnectionStrings:DefaultConnection"] = Environment.GetEnvironmentVariable("DEFAULT_CONNECTION");
+
+builder.Services.AddInfrastructureAPI(builder.Configuration);
 
 // Add services to the container.
 
