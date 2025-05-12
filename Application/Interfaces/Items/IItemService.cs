@@ -11,5 +11,6 @@ namespace Application.Interfaces.Items
     public interface IItemService
     {
         Task<Item> CreateItem(CreateItemDTO request);
+        Task<IEnumerable<Item>> GetAllItems();
     }
 }
