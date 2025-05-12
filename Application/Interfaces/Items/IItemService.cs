@@ -10,8 +10,9 @@ namespace Application.Interfaces.Items
 {
     public interface IItemService
     {
-        Task<Item> CreateItem(CreateItemDTO request);
+        Task<Item> CreateItem(CreateItemDTO dto);
         Task<IEnumerable<Item>> GetAllItems();
         Task<Item> GetItemById(Guid id);
+        Task<Item> UpdateItem(Guid id, UpdateItemDTO dto);
     }
 }
