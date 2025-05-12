@@ -33,6 +33,13 @@ namespace API.Controllers
         public async Task<ActionResult<Item>> GetItemById(Guid id)
         {
             return Ok(await _itemService.GetItemById(id));
+     
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Item>> UpdateItem(Guid id, UpdateItemDTO dto)
+        {
+            return Ok(await _itemService.UpdateItem(id, dto));
         }
     }
 }
