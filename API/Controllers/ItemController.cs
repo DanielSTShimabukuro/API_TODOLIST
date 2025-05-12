@@ -22,5 +22,11 @@ namespace API.Controllers
         {
             return Ok(await _itemService.CreateItem(dto));
         }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Item>>> GetAllItems()
+        {
+            return Ok(await _itemService.GetAllItems());
+        }
     }
 }
