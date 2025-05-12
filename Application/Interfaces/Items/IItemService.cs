@@ -14,5 +14,6 @@ namespace Application.Interfaces.Items
         Task<IEnumerable<Item>> GetAllItems();
         Task<Item> GetItemById(Guid id);
         Task<Item> UpdateItem(Guid id, UpdateItemDTO dto);
+        Task<Item> DeleteItem(Guid id);
     }
 }
