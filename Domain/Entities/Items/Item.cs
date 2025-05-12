@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Application.DTOs.Items;
 
 namespace Domain.Entities.Items
 {
@@ -26,22 +25,6 @@ namespace Domain.Entities.Items
         public Item()
         {
 
-        }
-
-        public Item(CreateITemDTO dto) 
-        {
-            Id = Guid.NewGuid();
-            Name = dto.Name;
-            Description = dto.Description;
-            CreateAt = DateTime.UtcNow;
-            UpdateAt = DateTime.UtcNow;
-        }
-
-        public void Update(UpdateItemDTO dto) 
-        {
-            Name = dto.Name;
-            Description = dto.Description;
-            UpdateAt = DateTime.UtcNow;
         }
     }
 }
