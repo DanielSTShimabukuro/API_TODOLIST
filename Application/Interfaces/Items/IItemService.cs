@@ -12,5 +12,6 @@ namespace Application.Interfaces.Items
     {
         Task<Item> CreateItem(CreateItemDTO request);
         Task<IEnumerable<Item>> GetAllItems();
+        Task<Item> GetItemById(Guid id);
     }
 }
