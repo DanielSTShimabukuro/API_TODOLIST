@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs.Items
 {
-    public class CreateITemDTO
+    public class CreateItemDTO
     {
         [StringLength(100)]
         public string? Name { get; set; }
