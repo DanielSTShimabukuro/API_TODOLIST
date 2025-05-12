@@ -28,5 +28,11 @@ namespace API.Controllers
         {
             return Ok(await _itemService.GetAllItems());
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Item>> GetItemById(Guid id)
+        {
+            return Ok(await _itemService.GetItemById(id));
+        }
     }
 }
