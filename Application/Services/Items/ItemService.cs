@@ -50,7 +50,7 @@ namespace Application.Services.Items
         {
             var item = await _uof.Items.GetAsync(item => item.Id == id);
 
-            if (item == null) throw new Exception("Item Not Found");
+            if (item == null) throw new Exception("Item Not Found.");
 
             return item;
         }
@@ -65,6 +65,17 @@ namespace Application.Services.Items
             item.UpdateAt = DateTime.UtcNow;
 
             response = _uof.Items.Update(item);
+            await _uof.CommitAsync();
+
+            return response;
+        }
+
+        public async Task<Item> DeleteItem(Guid id)
+        {
+            Item item = await GetItemById(id);
+            Item response;
+
+            response = _uof.Items.Delete(item);
             await _uof.CommitAsync();
 
             return response;
