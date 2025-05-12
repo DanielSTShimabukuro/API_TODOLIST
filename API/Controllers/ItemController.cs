@@ -41,5 +41,11 @@ namespace API.Controllers
         {
             return Ok(await _itemService.UpdateItem(id, dto));
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Item>> DeleteItem(Guid id)
+        {
+            return Ok(await _itemService.DeleteItem(id));
+        }
     }
 }
