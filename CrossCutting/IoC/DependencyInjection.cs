@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Interfaces.Items;
+using Application.Services.Items;
 using Domain.Interfaces;
 using Domain.Interfaces.Items;
 using Infrastructure.Data;
@@ -27,6 +29,7 @@ namespace CrossCutting.IoC
 
             services.AddScoped<IItemRepository, ItemRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IItemService, ItemService>();
 
             return services;
         }
