@@ -54,5 +54,20 @@ namespace Application.Services.Items
 
             return item;
         }
+
+        public async Task<Item> UpdateItem(Guid id, UpdateItemDTO dto)
+        {
+            Item item = await GetItemById(id);
+            Item response;
+
+            item.Name = dto.Name;
+            item.Description = dto.Description;
+            item.UpdateAt = DateTime.UtcNow;
+
+            response = _uof.Items.Update(item);
+            await _uof.CommitAsync();
+
+            return response;
+        }
     }
 }
