@@ -12,9 +12,11 @@ namespace Domain.Entities.Items
         [Key]
         public Guid Id { get; init; }
 
+        [Required]
         [StringLength(100)]
         public string? Name { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string? Description { get; set; }
 
