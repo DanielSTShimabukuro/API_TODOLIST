@@ -45,5 +45,14 @@ namespace Application.Services.Items
         {
             return await _uof.Items.GetAllAsync();
         }
+
+        public async Task<Item> GetItemById(Guid id)
+        {
+            var item = await _uof.Items.GetAsync(item => item.Id == id);
+
+            if (item == null) throw new Exception("Item Not Found");
+
+            return item;
+        }
     }
 }
