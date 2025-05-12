@@ -32,15 +32,18 @@ namespace Application.Services.Items
 
             Item response;
 
-            if (dto == null)
-            {
-                new Exception("request is required.");
-            }
+            if (dto == null) throw new Exception("Request Is Required.");
+            
 
             response = _uof.Items.Create(item);
             await _uof.CommitAsync();
 
             return response;
+        }
+
+        public async Task<IEnumerable<Item>> GetAllItems()
+        {
+            return await _uof.Items.GetAllAsync();
         }
     }
 }
