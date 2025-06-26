@@ -27,7 +27,8 @@ namespace Application.Services.Items
                 Name = dto.Name,
                 Description = dto.Description,
                 CreateAt = DateTime.UtcNow,
-                UpdateAt = DateTime.UtcNow
+                UpdateAt = DateTime.UtcNow,
+                SectorId = dto.SectorId
             };
 
             Item response;
@@ -63,6 +64,7 @@ namespace Application.Services.Items
             item.Name = dto.Name;
             item.Description = dto.Description;
             item.UpdateAt = DateTime.UtcNow;
+            item.SectorId = dto.SectorId;
 
             response = _uof.Items.Update(item);
             await _uof.CommitAsync();

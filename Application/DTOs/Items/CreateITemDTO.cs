@@ -16,5 +16,7 @@ namespace Application.DTOs.Items
         [Required]
         [StringLength(100)]
         public string? Description { get; set; }
+
+        public Guid SectorId { get; set; }
     }
 }

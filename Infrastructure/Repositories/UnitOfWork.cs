@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Interfaces;
 using Domain.Interfaces.Items;
+using Domain.Interfaces.Sectors;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,11 +16,13 @@ namespace Infrastructure.Repositories
         protected readonly AppDbContext _context;
 
         public IItemRepository Items { get; }
+        public ISectorRepository Sectors { get; }
 
-        public UnitOfWork(AppDbContext context, IItemRepository itemRepository) 
+        public UnitOfWork(AppDbContext context, IItemRepository itemRepository, ISectorRepository sectorRepository) 
         {
             _context = context; 
             Items = itemRepository;
+            Sectors = sectorRepository;
         }
 
         public async Task<int> CommitAsync()

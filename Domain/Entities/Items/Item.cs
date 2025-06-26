@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities.Sectors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -24,9 +25,7 @@ namespace Domain.Entities.Items
 
         public DateTime UpdateAt { get; set; }
 
-        public Item()
-        {
-
-        }
+        public Guid? SectorId { get; set; }
+        public Sector? Sector { get; set; }
     }
 }

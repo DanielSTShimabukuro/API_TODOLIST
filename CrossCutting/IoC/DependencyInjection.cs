@@ -7,9 +7,11 @@ using Application.Interfaces.Items;
 using Application.Services.Items;
 using Domain.Interfaces;
 using Domain.Interfaces.Items;
+using Domain.Interfaces.Sectors;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Infrastructure.Repositories.Items;
+using Infrastructure.Repositories.Sectors;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,9 +30,10 @@ namespace CrossCutting.IoC
             });
 
             services.AddScoped<IItemRepository, ItemRepository>();
+            services.AddScoped<ISectorRepository, SectorRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IItemService, ItemService>();
-
+   
             return services;
         }
     }
